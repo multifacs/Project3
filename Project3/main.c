@@ -6,9 +6,9 @@
 
 int main(int argc, char* argv[])
 {
-	int n = 0, maxa = 0, mina = 0, i = 0;
-	int* arr;
-	//123
+	int n = 0, i = 0;
+	long int maxa = 0, mina = 0;
+	long int* arr;
 	FILE* f;
 	int sw;
 

@@ -7,14 +7,14 @@
 #define SWAP(A, B) { A = A + B; B = A - B; A = A - B; }
 
 
-void CreateArr(int size, int** m)
+void CreateArr(int size, long int** m)
 {
 	if (size > 0)
-		*m = (int*)malloc(size * sizeof(int));
+		*m = (long int*)malloc(size * sizeof(long int));
 	//*m[0] = 25;
 }
 
-void Gen(int size, int* m, int maxa, int mina)
+void Gen(int size, long int* m, long int maxa, long int mina)
 {
 	int i = 0;
 	for (i = 0; i < size; i++)
@@ -23,7 +23,7 @@ void Gen(int size, int* m, int maxa, int mina)
 	}
 }
 
-void Print(int size, int* m)
+void Print(int size, long int* m)
 {
 	int i = 0;
 	printf("N = %d\n", size);
@@ -31,7 +31,7 @@ void Print(int size, int* m)
 		printf("m[%d] = %d\n", i, m[i]);
 }
 
-void PrintFile(FILE* f, int size, int* m)
+void PrintFile(FILE* f, int size, long int* m)
 {
 	int i = 0;
 	fprintf(f, "%d\n", size);
@@ -39,19 +39,20 @@ void PrintFile(FILE* f, int size, int* m)
 		fprintf(f, "m[%d] = %d\n", i, m[i]);
 }
 
-void ScanFile(FILE* f, int size, int** m)
+void ScanFile(FILE* f, int size, long int** m)
 {
 	int i = 0, j = 0;
 	rewind(f);
 	fscanf(f, "%d\n", &size);
-	*m = (int*)malloc(size * sizeof(int));
+	*m = (long int*)malloc(size * sizeof(long int));
 	for (i = 0; i < size; i++)
 		fscanf(f, "m[%d] = %d\n", &j, &((*m)[i]));
 }
 
-void insertionsort(int arr[], int n)
+void insertionsort(long int* arr, int n)
 {
-	int i, key, j;
+	int i, j;
+	long int key;
 	
 	clock_t start, stop;
 
@@ -73,7 +74,7 @@ void insertionsort(int arr[], int n)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void quicksort(int* arr, int first, int last)
+void quicksort(long int* arr, long int first, long int last)
 {
 	clock_t start, stop;
 
@@ -90,7 +91,7 @@ void qs(int *s_arr, int first, int last)
 {
 	if (first < last)
 	{
-		int left = first, right = last, middle = s_arr[(left + right) / 2];
+		long int left = first, right = last, middle = s_arr[(left + right) / 2];
 		do
 		{
 			while (s_arr[left] < middle) left++;
@@ -109,7 +110,7 @@ void qs(int *s_arr, int first, int last)
 	}
 }
 
-void bubblesort(int* a, int n)
+void bubblesort(long int* a, int n)
 {
 	int j, nn;
 
