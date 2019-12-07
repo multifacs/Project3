@@ -8,7 +8,6 @@ int main(int argc, char* argv[])
 {
 	int n = 0, maxa = 0, mina = 0, i = 0;
 	int* arr;
-	int* backup;
 	FILE* f;
 	int sw;
 
@@ -25,24 +24,19 @@ int main(int argc, char* argv[])
 	mina = atoi(argv[2]);
 	maxa = atoi(argv[3]);
 	CreateArr(n, &arr);
-	backup = (int*) malloc(n * sizeof(int));
 	Gen(n, arr, maxa, mina);
 	f = fopen(argv[4], "w");
-
-	//for (i = 0; i < n; i++)
-		//backup[i] = arr[i];
 
 	PrintFile(f, n, arr);
 	fclose(f);
 	f = fopen(argv[4], "a+");
-	//ScanFile(f, n, arr);
 	
 	sw = 1;
 
 	while (sw) {
 		printf("Enter bubble, insertion, quick or exit: ");
-		fgets(line, sizeof(line), stdin);
-		//scanf("%s", line);
+		//fgets(line, sizeof(line), stdin);
+		scanf("%s", line);
 
 		switch (line[0]) {
 		case 'b':
