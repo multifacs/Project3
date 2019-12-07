@@ -74,7 +74,7 @@ void insertionsort(long int* arr, int n)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void quicksort(long int* arr, long int first, long int last)
+void quicksort(long int* arr, int first, int last)
 {
 	clock_t start, stop;
 
@@ -87,7 +87,7 @@ void quicksort(long int* arr, long int first, long int last)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void qs(int *s_arr, int first, int last)
+void qs(long int *s_arr, int first, int last)
 {
 	if (first < last)
 	{
