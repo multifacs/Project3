@@ -39,13 +39,13 @@ void PrintFile(FILE* f, int size, long int* m)
 		fprintf(f, "m[%d] = %d\n", i, m[i]);
 }
 
-void ScanFile(FILE* f, int size, long int** m)
+void ScanFile(FILE* f, int* size, long int** m)
 {
 	int i = 0, j = 0;
 	rewind(f);
-	fscanf(f, "%d\n", &size);
-	*m = (long int*)malloc(size * sizeof(long int));
-	for (i = 0; i < size; i++)
+	fscanf(f, "%d\n", size);
+	*m = (long int*)malloc(*size * sizeof(long int));
+	for (i = 0; i < *size; i++)
 		fscanf(f, "m[%d] = %d\n", &j, &((*m)[i]));
 }
 
