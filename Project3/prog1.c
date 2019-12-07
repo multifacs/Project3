@@ -11,7 +11,6 @@ void CreateArr(int size, int** m)
 {
 	if (size > 0)
 		*m = (int*)malloc(size * sizeof(int));
-	//*m[0] = 25;
 }
 
 void Gen(int size, int* m, int maxa, int mina)
@@ -39,13 +38,13 @@ void PrintFile(FILE* f, int size, int* m)
 		fprintf(f, "m[%d] = %d\n", i, m[i]);
 }
 
-void ScanFile(FILE* f, int size, int** m)
+void ScanFile(FILE* f, int* size, int** m)
 {
 	int i = 0, j = 0;
 	rewind(f);
-	fscanf(f, "%d\n", &size);
-	*m = (int*)malloc(size * sizeof(int));
-	for (i = 0; i < size; i++)
+	fscanf(f, "%d\n", size);
+	*m = (int*)malloc(*size * sizeof(int));
+	for (i = 0; i < *size; i++)
 		fscanf(f, "m[%d] = %d\n", &j, &((*m)[i]));
 }
 
